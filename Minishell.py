@@ -34,15 +34,14 @@ def remove_specialChar(output):
 
 def cleanOutput(output):
 	output = remove_specialChar(output)
+	print(repr(output))
 	res = ""
-	if "\033[95m" in output:
-		lines = output.split("\033[95m")
-	else:
-		lines = output.split("\033[96m")
+	if ">Mini" in output:
+		lines = output.split(">Mini")
 	res = lines[0]
 	del lines[0]
 	for line in lines:
-		temp = line.split("\x1b[39m$ ",1)
+		temp = line.split("sheeeeel : ",1)
 		if len(temp) > 1:
 			res += '@MINISHELL@>' + temp[1]
 		else:
